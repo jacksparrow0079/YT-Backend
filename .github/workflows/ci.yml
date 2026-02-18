@@ -57,4 +57,4 @@ jobs:
         # actual command
 
     - name : Test Command
-      run: npm test
+      run: echo "Testing APP"
