@@ -6,38 +6,37 @@ name: CD Pipeline
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+#   pull_request:
+#     branches: [ "main" ]
 
 # jobs
 jobs:
+    # job name
   deploy:
 
     # server
     runs-on: ubuntu-latest
-
     # versions you want to test your app on
     # strategy:
     #   matrix:
     #     node-version: [18.x, 20.x, 22.x]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
-
     steps:
-        # switch branch
+        # switch branch - (main)
     - uses: actions/checkout@v4
     # - name: Use Node.js ${{ matrix.node-version }}
     #   uses: actions/setup-node@v4
     #   with:
     #     node-version: ${{ matrix.node-version }}
     #     cache: 'npm'
-        # actual commands
-        
+    #     # actual command
     - name : Build Docker Image
-      run: docker build -t vivek00070/youtube-backend:latest .
+      run: docker build -t vivek00070/ytbackend:latest .
 #docckerhub-password
     - name : Login to DockerHub
       run: echo "${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
       #Sucessful login will return a message like "Login Succeeded"
     - name: login Successful
       run: echo "Login Successful"
+
 
