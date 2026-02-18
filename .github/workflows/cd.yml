@@ -33,10 +33,10 @@ jobs:
         # actual commands
         
     - name : Build Docker Image
-      run: docker build -t vivek00070/ytbackend:latest .
+      run: docker build -t vivek00070/youtube-backend:latest .
 #docckerhub-password
     - name : Login to DockerHub
-      run: echo "${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin"
+      run: echo "${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
       #Sucessful login will return a message like "Login Succeeded"
     - name: login Successful
       run: echo "Login Successful"
