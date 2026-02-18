@@ -31,10 +31,12 @@ jobs:
     #     cache: 'npm'
     #     # actual command
     - name : Build Docker Image
-      run: docker build -t nehal524/youtube-backend:latest .
-# docker hub - 2367te346tr3t2ewyquert7yer
-    - name: Docker Login
-      run: echo "${{ secrets.DOCKER_HUB_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_HUB_USERNAME }}" --password-stdin
+      run: docker build -t vivek00070/yt-backend:latest .
+#docckerhub-password
+    - name : Login to DockerHub
+      run: echo "${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin"
+      #Sucessful login will return a message like "Login Succeeded"
+    - name: login Successful
+      run: echo "Login Successful"
 
-    - name: Login Successful'
-      run: echo "Logged in to Docker Hub successfully"
+
