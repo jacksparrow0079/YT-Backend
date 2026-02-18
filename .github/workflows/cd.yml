@@ -25,13 +25,16 @@ jobs:
         # switch branch - (main)
     - uses: actions/checkout@v4
     # - name: Use Node.js ${{ matrix.node-version }}
-    #   uses: actions/setup-node@v4
+    #   uses: actions/setup-node@v4gi
     #   with:
     #     node-version: ${{ matrix.node-version }}
     #     cache: 'npm'
     #     # actual command
     - name : Build Docker Image
       run: docker build -t vivek00070/ytbackend:latest .
+      
+    - name: Docker Image Built
+      run: echo "Docker Image Built Successfully"  
 #docckerhub-password
     - name : Login to DockerHub
       run: echo "${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }}" --password-stdin
