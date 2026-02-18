@@ -33,7 +33,7 @@ jobs:
         # actual commands
         
     - name : Build Docker Image
-      run: docker build -t vivek00070/Youtube:latest .
+      run: docker build -t vivek00070/youtube:latest .
 #docckerhub-password
     - name : Login to DockerHub
       run: echo "${{ secrets.DOCKERHUB_PASS }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin"
