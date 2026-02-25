@@ -43,8 +43,8 @@ jobs:
       run: echo "Login Successful"
 
     - name : Push Docker Image
-      run: docker push vivek00070/ytbackend:latest
-      
+      run: docker push vivek00070/ytbackend:latest .
+
     - name: Docker Image Pushed
       run: echo "Docker Image Pushed Successfully"
 
